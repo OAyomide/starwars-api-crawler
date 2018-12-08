@@ -23,7 +23,7 @@ For example: BB-8 will be crawled and saved as a robot. It can then be queried f
 
 
 ### Are you going to actively maintain this?
-Actually, I will try to. However ❤️ from other developers who lover starwars will go a long way in making things move fast 🏃⏩. PRs, issues, ideas, tips will all be appreciated and are welcome.
+Actually, I will try to. However ❤️ from other developers who love starwars will go a long way in making things move fast 🏃⏩. PRs, issues, ideas, tips will all be appreciated and are welcome.
 
 
 

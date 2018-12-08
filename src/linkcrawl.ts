@@ -1,13 +1,14 @@
 import axios from 'axios'
 import * as cheerio from 'cheerio'
-
+import * as fs from 'fs'
+import { resolve as res } from 'path'
 export default async function test() {
   try {
     let url: string = 'http://starwars.com/databank'
     const go: any = await axios(url);
     const body: string = go.data
     const $: any = cheerio.load(body)
-    const nms: object = []
+    const nms: Array<object> = []
 
     //then we want to gett all the children under the class that represents each entity we want to crawl
     $('.building-block-wrapper').each( function(i, elemt){
@@ -19,8 +20,25 @@ export default async function test() {
       }
     })
 
-    
+    const filterData = nms.filter(x => x !== undefined)
+    const starwarsResistanceFile = await writeFile('resistance.json', filterData)
+    console.log(starwarsResistanceFile)
+
+
   } catch (error) {
     console.log(`Error making async call`, error)
   }
 }
+
+
+const writeFile = (filename: string, data: any) => new Promise((resolve, reject) => {
+  fs.writeFile(res(__dirname, '../src/asset', filename), JSON.stringify(data, null, 4), { flag: 'w+'}, (err) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        reject("File or folder not found. Perhaps its the wrong directory.")
+      }
+      reject(err)
+    }
+    resolve("Written")
+  })
+})
