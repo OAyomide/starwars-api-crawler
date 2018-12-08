@@ -19,9 +19,7 @@ export default async function test() {
       }
     })
 
-
-    console.log(`SCRAPPED SAMPLE DATA IS::`, nms)
-    //console.log(`The axios request is::`,body);
+    
   } catch (error) {
     console.log(`Error making async call`, error)
   }
