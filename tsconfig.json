@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist",
+    "noImplicitAny": false,
+    "target": "esnext",
+    "strict": false
+  },
+  "exclude": [
+    "node_modules"
+  ],"files": [
+    "src/index.ts"
+  ]
+}
